@@ -1,0 +1,17 @@
+
+.card
+{
+    border-radius: 6px!important;
+    box-shadow: 0 2px 4px gray;
+
+}
+.inline
+{
+    display: inline; 
+    margin:10px;
+}
+h6
+{
+    margin-bottom: 0px!important;
+}
+
