@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios'
+import { API } from 'config';
 
 const Sample = ({parent,Obj,root}) => {
     const [showResults, setShowResults] = React.useState(false)
@@ -23,7 +24,7 @@ const Sample = ({parent,Obj,root}) => {
 
 
      const addnode=async(node)=>{
-      await axios.patch(`https://devlopermap.herokuapp.com/tree/${inputfield.parentId}`,node)
+      await axios.patch(`${API}/tree/${inputfield.parentId}`,node)
       .then(res=>{
         const data={...res.data};
         setnewrootId(data["_id"]);

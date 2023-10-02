@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import './card-style.css'
 import { ArrowRight,Eye,EyeSlash } from 'react-bootstrap-icons';
 import axios from 'axios';
+import { API } from 'config';
 
 const Card = props => {
      const [view,setView]= React.useState(true);
@@ -19,7 +20,7 @@ const Card = props => {
       setInputfield( {...inputfield,[e.target.name]: e.target.value} )
      } 
      const addnode=async(node)=>{
-      await axios.post("https://devlopermap.herokuapp.com/node",node)
+      await axios.post(`${API}/node`,node)
       .then(res=>{
         setrootId(res.data["_id"]);
       
@@ -29,13 +30,10 @@ const Card = props => {
      }
 
        function handleSubmit(e){
-       e.preventDefault();
-       console.log(inputfield);
-       addnode(inputfield);
-    
-       
-
-       setView(!view);
+            e.preventDefault();
+            console.log(inputfield);
+            addnode(inputfield);
+            setView(!view);
 
 
      }

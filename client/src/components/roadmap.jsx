@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Sample from './sample';
 import './tree-style.css'
 import { useNavigate } from "react-router-dom";
+import { API } from 'config';
 
 
 const Roadmap = () => {
@@ -23,7 +24,7 @@ const Roadmap = () => {
         setInputfield( {...inputfield,[e.target.name]: e.target.value} )
     } 
     const startRoadmap=async()=>{
-        await axios.post("https://devlopermap.herokuapp.com/tree",inputfield)
+        await axios.post(`${API}/tree`,inputfield)
         .then(res=>{
            const data={...res.data};
            setObj(data);

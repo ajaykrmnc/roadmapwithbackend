@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { API } from 'config';
 
 const useFetch = (url) => {
   const [data, setData] = useState(null);
@@ -14,7 +15,7 @@ const useFetch = (url) => {
       .then(async(Tree) => {
         console.log(Tree.data);
 
-        await axios.get(`https://devlopermap.herokuapp.com/tree/${Tree.data._id}/${Tree.data.root}`)
+        await axios.get(`${API}/${Tree.data._id}/${Tree.data.root}`)
         .then(res=> 
         {
            setRoot(res.data._id);

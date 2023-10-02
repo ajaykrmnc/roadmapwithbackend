@@ -2,6 +2,7 @@ import React,{Component} from "react"
 import axios from "axios";
 import { useEffect } from "react";
 import { ArrowRight,Eye,EyeSlash } from 'react-bootstrap-icons';
+import { API } from "config";
 
 
 
@@ -17,7 +18,7 @@ export default class Hello extends Component {
     async componentDidMount(){
   
       
-      const url='https://devlopermap.herokuapp.com/tree/' + this.props.treeId;
+      const url=`${API}/tree/` + this.props.treeId;
       await axios.get(url)
       .then(async(resTree) => {
         this.setState({tree: resTree.data.node})
